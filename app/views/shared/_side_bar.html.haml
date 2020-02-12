@@ -1,1 +1,14 @@
-＜サイドバー＞
+.side-contents
+  .side-contents__header
+    .side-contents__header__box
+      .side-contents__header__box--name masa
+      .side-contents__header__box--edit
+        = link_to "#", class: "edit" do
+          = icon("fas", "edit")
+
+        = link_to "#", class: "cog" do
+          = icon("fas", "cog")
+
+  .side-contents__groups
+    .side-contents__groups--group-name techcamp
+    .side-contents__groups--group-message まだメッセージはありません
