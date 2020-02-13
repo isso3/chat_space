@@ -1,13 +1,14 @@
 .side-contents
   .side-contents__header
+    = current_user.name
     .side-contents__header__box
-      .side-contents__header__box--name masa
+      .side-contents__header__box--name 
       .side-contents__header__box--edit
-        = link_to "#", class: "edit" do
-          = icon("fas", "edit")
+        = link_to "#" do
+          = icon("fas", "edit", class: "edit")
 
-        = link_to "#", class: "cog" do
-          = icon("fas", "cog")
+        = link_to edit_user_path(current_user) do
+          = icon("fas", "cog", class: "cog" )
 
   .side-contents__groups
     .side-contents__groups--group-name techcamp
