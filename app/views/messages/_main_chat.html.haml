@@ -9,6 +9,9 @@
     .main-contents__header--member 
       member: masa
 
+  .messages
+  = render @messages
+
   .main-contents__messages
     .main-contents__messages__info
       .main-contents__messages__info--message-name
@@ -18,13 +21,11 @@
     .main-contents__messages--message
       おはよう
 
-  .main-contents__form
-    .main-contents__form__message
-      .main-contents__form__message--input
-        %input{type: "text",class: "me", placeholder: "type a message"}
-        .main-contents__form__message--picture
-          %label{class: "image"}
-            = icon('fas', 'image')
-            %input{type: "file"}
-    .main-contents__form__message--Send
-      = link_to "Send", "#", class: "send"
+  .form
+      = form_for [@group, @message] do |f|
+        = f.text_field :content, class: 'form__message', placeholder: 'type a message'
+        .form__mask
+          = f.label :image, class: 'form__mask__image' do
+            = icon('fas', 'image', class: 'icon')
+            = f.file_field :image, class: 'hidden'
+        = f.submit 'Send', class: 'form__submit'
